@@ -63,11 +63,12 @@ function displayProducts(prodArray){
         anchor.className =`image-${i}`;
         anchor.href="#";
         img.setAttribute("src",prodArray[i].image);
-        img.setAttribute("style","width: 46%; margin: 3% 2%;");
+        img.setAttribute("style","width: 94%; margin: 3%;");
         nameHolder.innerText = `${prodArray[i].name}`;
+        nameHolder.setAttribute("style","margin: 0;");
         //display
         anchor.appendChild(img);
-        // anchor.appendChild(nameHolder);
+        anchor.appendChild(nameHolder);
         document.querySelector('.products').appendChild(anchor);
         currentProducts.push(prodArray[i]);
     }
@@ -88,7 +89,7 @@ function displayCart(prodArray){
         element.innerText = `${prod_name}`;
         list.appendChild(element)
     }
-    console.log(shoppingCart);
+    // console.log(shoppingCart);
 }
 
 
