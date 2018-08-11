@@ -64,44 +64,50 @@ function displayProducts(prodArray){
         document.querySelector('.products').appendChild(anchor);
         currentProducts.push(prodArray[i]);
     }
-    console.log(currentProducts);
 }
 
 //This function displays selected products (should recieve shoppingCart array)
 function displayCart(prodArray){
     for(var i = 0; i < prodArray.length; i++){
         var prod_name = prodArray[i].name;
-        var nameOfP = document.createElement("li");
+        var nameOfP = document.createElement("li").innerHTML = prod_name;
         document.querySelector('.selected-name-prod').appendChild(nameOfP);
     }
 }
 
 function toShoppingCart(choice){
     shoppingCart.push(currentProducts[choice]);
+    // displayCart(shoppingCart);
+    console.log(shoppingCart);
 }
 
-function selection(){
-    document.querySelector(".image-1").addEventListener("click", toShoppingCart(1));
-    document.querySelector(".image-2").addEventListener("click", toShoppingCart(2));
-    document.querySelector(".image-3").addEventListener("click", toShoppingCart(3));
-    document.querySelector(".image-4").addEventListener("click", toShoppingCart(4));
-    document.querySelector(".image-5").addEventListener("click", toShoppingCart(5));
-}
-
-var len = document.querySelector(".products").length;
+//EventListeners
 
 cereal_btn.addEventListener("click", function(){
     clearinterface();
     displayProducts(cereal_array);
+    selection();
 });
 
 juices_btn.addEventListener("click", function(){
     clearinterface();
     displayProducts(juice_array);
+    selection();
 });
 
 candy_btn.addEventListener("click", function(){
     clearinterface();
     displayProducts(candy_array);
+    selection();
 });
 
+var len = document.querySelector(".products").length;
+
+//Allows selection of products
+function selection() {
+    document.querySelector(".image-0").addEventListener("click", function(){toShoppingCart(1)});
+    document.querySelector(".image-1").addEventListener("click", function(){toShoppingCart(2)});
+    document.querySelector(".image-2").addEventListener("click", function(){toShoppingCart(3)});
+    document.querySelector(".image-3").addEventListener("click", function(){toShoppingCart(4)});
+    document.querySelector(".image-4").addEventListener("click", function(){toShoppingCart(5)});
+}
