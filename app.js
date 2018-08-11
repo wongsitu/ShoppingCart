@@ -67,6 +67,7 @@ function displayProducts(prodArray){
         nameHolder.innerText = `${prodArray[i].name}`;
         //display
         anchor.appendChild(img);
+        // anchor.appendChild(nameHolder);
         document.querySelector('.products').appendChild(anchor);
         currentProducts.push(prodArray[i]);
     }
@@ -116,6 +117,15 @@ candy_btn.addEventListener("click", function(){
     clearinterface("a",'.products');
     displayProducts(candy_array);
     selection();
+});
+
+document.getElementById("deleteAll").addEventListener("click", function(){
+    shoppingCart = [];
+    var list = document.querySelector('.nameOfproducts');
+    while (list.firstChild) {
+        list.removeChild(list.firstChild);
+    }
+    // console.log(shoppingCart);
 });
 
 //Allows selection of products
