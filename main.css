@@ -67,12 +67,11 @@ main{
     color: white;
 }
 
-/* .products{
-    display: grid;
-    grid-template-columns: 5% 1fr 5% 1fr 5%;
-    grid-template-rows: 20px 200px 20px 200px 20px 200px 20px;
-    border: 2px solid red;
-} */
+.nameOfproducts{
+    text-decoration: none;
+    list-style: none;
+    color: red;
+}
 
 .products{
     /* display: row; */

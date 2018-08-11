@@ -41,9 +41,9 @@ var currentProducts = [];
 var shoppingCart = [];
 
 //This function clears the previus view
-function clearinterface (){
-    var menu = document.querySelectorAll("a");
-    var parent = document.querySelector('.products');
+function clearinterface (child,parentSelector){
+    var menu = document.querySelectorAll(child);
+    var parent = document.querySelector(parentSelector);
     if (menu.length > 0){
         for (var j = 0; j < menu.length ;j++){
             parent.removeChild(menu[j]);
@@ -56,7 +56,7 @@ function clearinterface (){
 function displayProducts(prodArray){
     for(var i = 0; i < prodArray.length; i++){
         var anchor = document.createElement('a');
-        anchor.className=`image-${i}`;
+        anchor.className =`image-${i}`;
         anchor.href="#";
         var img = document.createElement("img");
         img.setAttribute("src",prodArray[i].image);
@@ -67,13 +67,22 @@ function displayProducts(prodArray){
     }
 }
 
-//This function displays selected products (should recieve shoppingCart array)
 function displayCart(prodArray){
-    for(var i = 0; i < prodArray.length; i++){
-        var prod_name = prodArray[i].name;
-        var nameOfP = document.createElement("li").innerHTML = prod_name;
-        document.querySelector('.selected-name-prod').appendChild(nameOfP);
+    //Removes all displayed products of shoppingCart, 
+    //that way it won't write on top of each other
+    var list = document.querySelector('.nameOfproducts');
+    while (list.firstChild) {
+        list.removeChild(list.firstChild);
     }
+    //Reloads the updated shoppingCart list
+    for(var k = 0; k < prodArray.length; k++){
+        var prod_name = prodArray[k].name;
+        var element = document.createElement("li");
+        element.className = `name-${k}`
+        element.innerText = `${prod_name}`;
+        list.appendChild(element)
+    }
+    console.log(shoppingCart);
 }
 
 
@@ -81,24 +90,25 @@ function displayCart(prodArray){
 function toShoppingCart(choice){
     var selected = currentProducts[choice];
     shoppingCart.push(selected);
+    displayCart(shoppingCart);
 }
 
 //EventListeners
 
 cereal_btn.addEventListener("click", function(){
-    clearinterface();
+    clearinterface("a",'.products');
     displayProducts(cereal_array);
     selection();
 });
 
 juices_btn.addEventListener("click", function(){
-    clearinterface();
+    clearinterface("a",'.products');
     displayProducts(juice_array);
     selection();
 });
 
 candy_btn.addEventListener("click", function(){
-    clearinterface();
+    clearinterface("a",'.products');
     displayProducts(candy_array);
     selection();
 });
@@ -107,6 +117,7 @@ var len = document.querySelector(".products").length;
 
 //Allows selection of products
 function selection() {
+    //I know, I know. It was hard coded. WET code.
     document.querySelector(".image-0").addEventListener("click", function(){toShoppingCart(0)});
     document.querySelector(".image-1").addEventListener("click", function(){toShoppingCart(1)});
     document.querySelector(".image-2").addEventListener("click", function(){toShoppingCart(2)});
