@@ -1,0 +1,80 @@
+body{
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 12fr;
+}
+
+.first-half{
+    grid-row: 1 /span 1;
+    grid-column: 1 /span 1;
+    width: 100%;
+}
+
+.second-half{
+    grid-row: 1 / span 2;
+    grid-column: 2 / span 2;
+    width: 100%;
+    background-color: #f8f8f8;
+}
+
+.selected-products{
+    margin: 0 10%;
+}
+
+#title1 {
+    text-align: center;
+    margin-top: 0;
+    padding-top: 1em;
+    color: white;
+}
+
+.menu{
+    margin:0;
+    padding:0;
+    padding-bottom: 0.5em;
+}
+
+.menu button{
+    font-size: 20em;
+}
+
+#title2{
+    text-align: center;
+    color:black;
+}
+
+.navigation{
+    background-color:#232f3e;
+}
+
+.menu{
+    display: flex;
+    text-decoration: none;
+    list-style-type: none;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 5%;
+}
+
+#cereal, #juices, #candy{
+    background-color: Transparent;
+    border: none;
+    color: white;
+}
+
+/* .products{
+    display: grid;
+    grid-template-columns: 5% 1fr 5% 1fr 5%;
+    grid-template-rows: 20px 200px 20px 200px 20px 200px 20px;
+    border: 2px solid red;
+} */
+
+.products{
+    /* display: row; */
+    margin: 0 auto;
+}
