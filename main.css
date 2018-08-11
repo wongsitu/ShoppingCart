@@ -69,11 +69,22 @@ main{
 
 .nameOfproducts{
     text-decoration: none;
+    text-align: center;
     list-style: none;
     color: red;
+    padding: 0;
+
 }
 
 .products{
     /* display: row; */
     margin: 0 auto;
 }
+
+#deleteAll{
+    display: block;
+    margin: 0 auto;
+    height: 3em;
+    width: 50%;
+}
+

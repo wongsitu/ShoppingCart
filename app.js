@@ -52,15 +52,20 @@ function clearinterface (child,parentSelector){
     currentProducts = [];
 }
 
-//This function displays products
+//This function creates a chunk of code for every product and displays it
 function displayProducts(prodArray){
     for(var i = 0; i < prodArray.length; i++){
+        //tags
         var anchor = document.createElement('a');
+        var img = document.createElement("img");
+        var nameHolder = document.createElement("p");
+        //attributes and CSS
         anchor.className =`image-${i}`;
         anchor.href="#";
-        var img = document.createElement("img");
         img.setAttribute("src",prodArray[i].image);
         img.setAttribute("style","width: 46%; margin: 3% 2%;");
+        nameHolder.innerText = `${prodArray[i].name}`;
+        //display
         anchor.appendChild(img);
         document.querySelector('.products').appendChild(anchor);
         currentProducts.push(prodArray[i]);
@@ -112,8 +117,6 @@ candy_btn.addEventListener("click", function(){
     displayProducts(candy_array);
     selection();
 });
-
-var len = document.querySelector(".products").length;
 
 //Allows selection of products
 function selection() {
