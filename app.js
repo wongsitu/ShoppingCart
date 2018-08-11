@@ -62,6 +62,7 @@ function displayProducts(prodArray){
         //attributes and CSS
         anchor.className =`image-${i}`;
         anchor.href="#";
+        anchor.setAttribute("style","border: 1px solid grey; display: inline-block;");
         img.setAttribute("src",prodArray[i].image);
         img.setAttribute("style","width: 94%; margin: 3%;");
         nameHolder.innerText = `${prodArray[i].name}`;
