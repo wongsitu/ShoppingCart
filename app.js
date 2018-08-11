@@ -1,3 +1,4 @@
+//Create template
 function Products(image,name,type){
     this.image = image;
     this.name = name;
@@ -75,10 +76,11 @@ function displayCart(prodArray){
     }
 }
 
+
+//This function pushes selected products
 function toShoppingCart(choice){
-    shoppingCart.push(currentProducts[choice]);
-    // displayCart(shoppingCart);
-    console.log(shoppingCart);
+    var selected = currentProducts[choice];
+    shoppingCart.push(selected);
 }
 
 //EventListeners
@@ -105,9 +107,9 @@ var len = document.querySelector(".products").length;
 
 //Allows selection of products
 function selection() {
-    document.querySelector(".image-0").addEventListener("click", function(){toShoppingCart(1)});
-    document.querySelector(".image-1").addEventListener("click", function(){toShoppingCart(2)});
-    document.querySelector(".image-2").addEventListener("click", function(){toShoppingCart(3)});
-    document.querySelector(".image-3").addEventListener("click", function(){toShoppingCart(4)});
-    document.querySelector(".image-4").addEventListener("click", function(){toShoppingCart(5)});
+    document.querySelector(".image-0").addEventListener("click", function(){toShoppingCart(0)});
+    document.querySelector(".image-1").addEventListener("click", function(){toShoppingCart(1)});
+    document.querySelector(".image-2").addEventListener("click", function(){toShoppingCart(2)});
+    document.querySelector(".image-3").addEventListener("click", function(){toShoppingCart(3)});
+    document.querySelector(".image-4").addEventListener("click", function(){toShoppingCart(4)});
 }
