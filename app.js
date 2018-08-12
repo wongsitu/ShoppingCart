@@ -90,8 +90,10 @@ function displayCart(prodArray){
         element.className = `name-${k}`;
         element.innerText = `${prod_name}  |  $${prod_price}`;
         list.appendChild(element);
-        console.log(CalculateTotal(prodArray));
     }
+    var price = CalculateTotal(prodArray);
+    document.getElementById("showPrice").innerText = `Total Price: $${Math.round(price * 100) / 100}`;
+
 }
 
 
@@ -114,6 +116,7 @@ function selection(){
     });
 }
 
+//Calculates the total price of shopping Cart
 function CalculateTotal(prices_array){
     var TotalPrice = 0
     for( var i = 0; i < prices_array.length; i++){
@@ -142,8 +145,10 @@ candy_btn.addEventListener("click", function(){
     selection();
 });
 
+//Event listener to empty shoppingCart
 document.getElementById("deleteAll").addEventListener("click", function(){
     shoppingCart = [];
+    document.getElementById("showPrice").innerHTML = "Total Price: $0.00";
     var list = document.querySelector('.nameOfproducts');
     while (list.firstChild) {
         list.removeChild(list.firstChild);
