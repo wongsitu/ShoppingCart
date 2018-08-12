@@ -60,7 +60,7 @@ function displayProducts(prodArray){
         var img = document.createElement("img");
         var nameHolder = document.createElement("p");
         //attributes and CSS
-        anchor.className =`image-${i}`;
+        anchor.className =`${i}`;
         anchor.href="#";
         anchor.setAttribute("style","border: 1px solid grey; display: inline-block;");
         img.setAttribute("src",prodArray[i].image);
@@ -101,6 +101,18 @@ function toShoppingCart(choice){
     displayCart(shoppingCart);
 }
 
+//This function creates eventlisteners dinamically for every image displayed
+// if the images are clicked, they will be added to shoppingCart
+function selection(){
+    var elementsArray = document.querySelectorAll("a");
+    elementsArray.forEach(function(elem) {
+        elem.addEventListener("click", function() {
+            var productnumber = parseInt(elem.className);
+            toShoppingCart(productnumber);
+        });
+    });
+}
+
 //EventListeners
 
 cereal_btn.addEventListener("click", function(){
@@ -127,22 +139,4 @@ document.getElementById("deleteAll").addEventListener("click", function(){
     while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
-    // console.log(shoppingCart); debugger print
 });
-
-//Allows selection of products
-    //So I created images dinamically with classNames "image-${number}"
-    //I need to create evenListeners for every image class using a loop
-    //Had to hard code it, I tried many code versions to avoid this
-    //This code runs if and only if the number of products in every category is exactly 5
-function selection() {
-    document.querySelector(".image-0").addEventListener("click", function(){toShoppingCart(0)});
-    document.querySelector(".image-1").addEventListener("click", function(){toShoppingCart(1)});
-    document.querySelector(".image-2").addEventListener("click", function(){toShoppingCart(2)});
-    document.querySelector(".image-3").addEventListener("click", function(){toShoppingCart(3)});
-    document.querySelector(".image-4").addEventListener("click", function(){toShoppingCart(4)});
-    //Came up with this loop but when calling toShoppingCart function it passes the last value of i (which is 4) and not the respectively.
-    // for(var i = 0; i < 4; i++){
-    //     document.querySelector(`.image-${i}`).addEventListener("click", function(){toShoppingCart(i)});
-    // }
-}
