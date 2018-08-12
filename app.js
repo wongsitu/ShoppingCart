@@ -87,12 +87,11 @@ function displayCart(prodArray){
         var prod_name = prodArray[k].name;
         var prod_price = prodArray[k].price;
         var element = document.createElement("li");
-        element.className = `name-${k}`
-        element.innerText = `${prod_name} $${prod_price}`;
-        list.appendChild(element)
+        element.className = `name-${k}`;
+        element.innerText = `${prod_name}  |  $${prod_price}`;
+        list.appendChild(element);
+        console.log(CalculateTotal(prodArray));
     }
-    
-    // console.log(shoppingCart); debbuger print
 }
 
 
@@ -118,7 +117,7 @@ function selection(){
 function CalculateTotal(prices_array){
     var TotalPrice = 0
     for( var i = 0; i < prices_array.length; i++){
-        TotalPrice = TotalPrice + prices_array[i].price[i];
+        TotalPrice = TotalPrice + prices_array[i].price;
     }
     return TotalPrice;
 }
