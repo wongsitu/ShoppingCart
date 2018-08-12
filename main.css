@@ -92,7 +92,14 @@ main{
     height: 3em;
     width: 50%;
     border-radius: 10px;
+    border: 2px solid grey;
     outline:none;
+    background-color: Transparent;
+}
+
+#deleteAll:hover{
+    background-color: grey;
+    color: white;
 }
 
 a{
@@ -102,7 +109,7 @@ a{
     text-align: center;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 500px){
     .products{
         column-count: 1;
     }

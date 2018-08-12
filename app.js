@@ -90,7 +90,7 @@ function displayCart(prodArray){
         element.innerText = `${prod_name}`;
         list.appendChild(element)
     }
-    // console.log(shoppingCart);
+    // console.log(shoppingCart); debbuger print
 }
 
 
@@ -127,15 +127,22 @@ document.getElementById("deleteAll").addEventListener("click", function(){
     while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
-    // console.log(shoppingCart);
+    // console.log(shoppingCart); debugger print
 });
 
 //Allows selection of products
+    //So I created images dinamically with classNames "image-${number}"
+    //I need to create evenListeners for every image class using a loop
+    //Had to hard code it, I tried many code versions to avoid this
+    //This code runs if and only if the number of products in every category is exactly 5
 function selection() {
-    //I know, I know. It was hard coded. WET code.
     document.querySelector(".image-0").addEventListener("click", function(){toShoppingCart(0)});
     document.querySelector(".image-1").addEventListener("click", function(){toShoppingCart(1)});
     document.querySelector(".image-2").addEventListener("click", function(){toShoppingCart(2)});
     document.querySelector(".image-3").addEventListener("click", function(){toShoppingCart(3)});
     document.querySelector(".image-4").addEventListener("click", function(){toShoppingCart(4)});
+    //Came up with this loop but when calling toShoppingCart function it passes the last value of i (which is 4) and not the respectively.
+    // for(var i = 0; i < 4; i++){
+    //     document.querySelector(`.image-${i}`).addEventListener("click", function(){toShoppingCart(i)});
+    // }
 }
